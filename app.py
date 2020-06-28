@@ -11,8 +11,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def main():
-    latest_data=mongo.db.entries_mars.find_one()
-    return render_template("index.html", mars_data=latest_data)
+    latest_data=mongo.db.entries_mars.find().sort([('_id',-1)]).limit(1)
+    for data in latest_data:
+        return render_template("index.html", mars_data=data)
 
 
 @app.route("/scrape")

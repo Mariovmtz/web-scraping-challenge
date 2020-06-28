@@ -1,0 +1,11 @@
+body{
+    background-color: lightslategray;
+}
+
+.center_align{
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
